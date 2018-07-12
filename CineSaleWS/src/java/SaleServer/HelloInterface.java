@@ -10,7 +10,7 @@ import java.rmi.*;
  *
  * @author lzgustavo
  */
-public interface RMInterface extends Remote {
+public interface HelloInterface extends Remote {
     
     public String sayHello() throws RemoteException;
 }

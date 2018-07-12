@@ -36,16 +36,32 @@ public class SaleServer {
 	@WebMethod(operationName = "testRMI")
 	public String testRMI() {
 
-		RMInterface hello;
+		HelloInterface hello;
 		String name = "rmi://localhost/HelloServer";
 		String text;
 
 		try {
-			hello = (RMInterface) Naming.lookup(name);
+			hello = (HelloInterface) Naming.lookup(name);
 			text = hello.sayHello();
 			return text;
 		} catch (Exception e) {
 			return ("Hello Client Exception: " + e);
+		}
+	}
+	
+	@WebMethod(operationName = "validate")
+	public String validate(String card_number) {
+		
+		BankInterface bank;
+		String name = "rmi://localhost/BankServer";
+		String text;
+		
+		try {
+			bank = (BankInterface) Naming.lookup(name);
+			text = bank.validate("00001");
+			return text;
+		} catch (Exception e) {
+			return ("Bank error: " + e);
 		}
 	}
 }
