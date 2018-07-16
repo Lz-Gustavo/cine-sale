@@ -1,0 +1,5 @@
+sudo rabbitmq-server start
+
+sudo rabbitmqctl stop
+
+sudo rabbitmqctl status
