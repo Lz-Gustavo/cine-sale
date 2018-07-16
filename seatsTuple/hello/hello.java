@@ -10,13 +10,18 @@ public class hello {
 		// -> write
 		// -> read
 		// -> take
-		Mensagem msg = new Mensagem("Hello World!");
-		JavaSpace space = SpaceUtils.getSpace("localhost");
-		space.write(msg, null, Lease.FOREVER);
+		try {
+			Mensagem msg = new Mensagem("Hello World!");
+			JavaSpace space = SpaceUtils.getSpace("localhost");
+			space.write(msg, null, Lease.FOREVER);
 
-		Mensagem template = new Mensagem();
-		Mensagem result = (Mensagem) space.read(template, null, Long.MAX_VALUE);
+			Mensagem template = new Mensagem();
+			Mensagem result = (Mensagem) space.read(template, null, Long.MAX_VALUE);
 
-		System.out.println(result.getContent());
+			System.out.println(result.getContent());
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 }
