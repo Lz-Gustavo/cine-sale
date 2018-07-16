@@ -13,7 +13,7 @@ import java.util.*;
 import java.rmi.*;
 
 /**
- *
+ * @author GSanM
  * @author lzgustavo
  */
 @WebService(serviceName = "SaleServer")

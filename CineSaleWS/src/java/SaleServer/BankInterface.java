@@ -8,7 +8,7 @@ package SaleServer;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 /**
- *
+ * @author GSanM
  * @author lzgustavo
  */
 

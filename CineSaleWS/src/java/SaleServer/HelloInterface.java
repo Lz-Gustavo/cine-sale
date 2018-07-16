@@ -7,7 +7,7 @@ package SaleServer;
 import java.rmi.*;
 
 /**
- *
+ * @author GSanM
  * @author lzgustavo
  */
 public interface HelloInterface extends Remote {
