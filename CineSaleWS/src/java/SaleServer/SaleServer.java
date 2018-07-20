@@ -18,6 +18,8 @@ import java.rmi.*;
  */
 @WebService(serviceName = "SaleServer")
 public class SaleServer {
+	
+	//private List<String> TupleSpace = new ArrayList();
 
 	@WebMethod(operationName = "hello")
 	public String hello(@WebParam(name = "name") String txt) {
@@ -63,5 +65,22 @@ public class SaleServer {
 		} catch (Exception e) {
 			return ("Bank error: " + e);
 		}
+	}
+	
+	@WebMethod(operationName = "consulta_espetaculo")
+	public String consulta_estaculo(String name) {
+	// IDEIA: pega todas tuplas que moldam o nome do espetaculo
+	
+	}
+	
+	@WebMethod(operationName = "reserva")
+	public String reserva(String tuple) {
+	// IDEIA: take do espaco de tuplas, insere na fila de pendentes
+	}
+	
+	@WebMethod(operationName = "compra")
+	public String compra(String num_cartao) {
+	// IDEIA: se cartao validado, insere na fila de concluidos e retira de 
+	// pendentes, senao, retira de pendentes e re-insere nas tuplas
 	}
 }
