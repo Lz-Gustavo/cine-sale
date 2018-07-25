@@ -5,5 +5,5 @@ import java.rmi.RemoteException;
 
 public interface BankInterface extends Remote {
 
-	public String validate(String card_number) throws RemoteException; 
+	public int validate(String card_number) throws RemoteException; 
 }
