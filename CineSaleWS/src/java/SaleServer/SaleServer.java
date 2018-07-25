@@ -39,22 +39,27 @@ public class SaleServer {
 		
 		BankInterface bank;
 		String name = "rmi://localhost/BankServer";
-		String text;
+		int permission;
 		
 		try {
 			bank = (BankInterface) Naming.lookup(name);
-			text = bank.validate("00001");
-			return text;
+			permission = bank.validate(card_number);
+			
+			if (permission == 1) {
+				return "Accepted card sir";
+			}
+			return "Rejected card, thief";
+			
 		} catch (Exception e) {
 			return ("Bank error: " + e);
 		}
 	}
 	
 	@WebMethod(operationName = "populate")
-	public void populate() {
+	public void populate(String name) {
 		
 		for (int i = 0; i < 10; i++) {
-			TupleSpace.put("A"+i, "branquelas");
+			TupleSpace.put("A"+i, name);
 		}
 	}
 	
@@ -81,8 +86,7 @@ public class SaleServer {
 	@WebMethod(operationName = "reserva")
 	public String reserva(String tuple) throws Exception {
 	// IDEIA: take do espaco de tuplas, insere na fila de pendentes
-		
-	
+
 		if (TupleSpace.containsKey(tuple)) {
 
 			ConnectionFactory factory = new ConnectionFactory();
@@ -107,9 +111,22 @@ public class SaleServer {
 	}
 	
 	@WebMethod(operationName = "compra")
-	public String compra(String num_cartao) {
+	public String compra(String num_cartao) throws Exception {
 	// IDEIA: se cartao validado, insere na fila de concluidos e retira de 
 	// pendentes, senao, retira de pendentes e re-insere nas tuplas
-		return "teste";
+		
+		ConnectionFactory factory = new ConnectionFactory();
+		factory.setHost(HOST_NAME);
+		Connection connection = factory.newConnection();
+		Channel channel = connection.createChannel();
+		channel.queueDeclare(FIN_QUEUE, false, false, false, null);
+		
+		String message = "compra assento qualquer finalizada";
+		channel.basicPublish("", FIN_QUEUE, null, message.getBytes());
+			
+		channel.close();
+		connection.close();
+	
+		return "teste compra concluido";
 	}
 }
