@@ -115,18 +115,30 @@ public class SaleServer {
 	// IDEIA: se cartao validado, insere na fila de concluidos e retira de 
 	// pendentes, senao, retira de pendentes e re-insere nas tuplas
 		
-		ConnectionFactory factory = new ConnectionFactory();
-		factory.setHost(HOST_NAME);
-		Connection connection = factory.newConnection();
-		Channel channel = connection.createChannel();
-		channel.queueDeclare(FIN_QUEUE, false, false, false, null);
-		
-		String message = "compra assento qualquer finalizada";
-		channel.basicPublish("", FIN_QUEUE, null, message.getBytes());
+		String permission_status = validate(num_cartao);
+		if (permission_status.equals("Accepted card sir")) {
 			
-		channel.close();
-		connection.close();
-	
-		return "teste compra concluido";
+			//remove from pending queue
+			
+			ConnectionFactory factory = new ConnectionFactory();
+			factory.setHost(HOST_NAME);
+			Connection connection = factory.newConnection();
+			Channel channel = connection.createChannel();
+			channel.queueDeclare(FIN_QUEUE, false, false, false, null);
+
+			String message = "compra assento qualquer finalizada";
+			channel.basicPublish("", FIN_QUEUE, null, message.getBytes());
+
+			channel.close();
+			connection.close();
+
+			return "successfully bougth ticket";
+		}
+		else {
+			//re-insere nas tuplas o id de assento contido na mensagem
+			//retirada da queue
+			
+			return "failed";
+		}
 	}
 }
