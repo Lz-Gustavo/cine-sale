@@ -14,7 +14,8 @@ import com.rabbitmq.client.*;
 public class Transactions {
 
 	private final static String PEN_QUEUE = "pendentes";
-	private final static String FIN_QUEUE = "finalizados";
+	private final static String APR_QUEUE = "aprovados";
+	private final static String REJ_QUEUE = "rejeitados";
 	private final static String HOST_NAME = "localhost";
 
 	private static ConnectionFactory factory_pen;
@@ -22,10 +23,16 @@ public class Transactions {
 	private static Channel channel_pen;
 	private static Consumer consumer_pen;
 
-	private static ConnectionFactory factory_fin;
-	private static Connection connection_fin;
-	private static Channel channel_fin;
-	private static Consumer consumer_fin;
+	private static ConnectionFactory factory_apr;
+	private static Connection connection_apr;
+	private static Channel channel_apr;
+	private static Consumer consumer_apr;
+
+	private static ConnectionFactory factory_rej;
+	private static Connection connection_rej;
+	private static Channel channel_rej;
+	private static Consumer consumer_rej;
+
 
 	private static String card_validate(String card_number) {
 		
@@ -51,55 +58,57 @@ public class Transactions {
 		factory_pen.setHost(HOST_NAME);
 		connection_pen = factory_pen.newConnection();
 		channel_pen = connection_pen.createChannel();
-      
 		channel_pen.queueDeclare(PEN_QUEUE, false, false, false, null);
 		//System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
-		consumer_pen = new DefaultConsumer(channel_pen) {
-			@Override
-			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
-			throws IOException {
+		// consumer_pen = new DefaultConsumer(channel_pen) {
+		// 	@Override
+		// 	public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+		// 	throws IOException {
 				
-				String message = new String(body, "UTF-8");
-				System.out.println(" [x] Received '" + message + "'");
-				//return message;
-			}
-		};
+		// 		String message = new String(body, "UTF-8");
+		// 		System.out.println(" [x] Received '" + message + "'");
+		// 		//return message;
+		// 	}
+		// };
 
-		//configuring connection to finished orders queue
 
-		factory_fin = new ConnectionFactory();
-		factory_fin.setHost(HOST_NAME);
-		connection_fin = factory_fin.newConnection();
-		channel_fin = connection_fin.createChannel();
-      
-		channel_fin.queueDeclare(FIN_QUEUE, false, false, false, null);
-		//System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+		//configuring connection to aproved orders queue
 
-		consumer_fin = new DefaultConsumer(channel_fin) {
-			@Override
-			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
-			throws IOException {
-				
-				String message = new String(body, "UTF-8");
-				System.out.println(" [x] Received '" + message + "'");
-				//return message;
-			}
-		};
+		factory_apr = new ConnectionFactory();
+		factory_apr.setHost(HOST_NAME);
+		connection_apr = factory_apr.newConnection();
+		channel_apr = connection_apr.createChannel();
+		channel_apr.queueDeclare(APR_QUEUE, false, false, false, null);
+
+		//configuring connection to rejected orders queue
+
+		factory_rej = new ConnectionFactory();
+		factory_rej.setHost(HOST_NAME);
+		connection_rej = factory_rej.newConnection();
+		channel_rej = connection_rej.createChannel();
+		channel_rej.queueDeclare(REJ_QUEUE, false, false, false, null);
+	}
+
+	private static String extract_card(String message) {
+		// message format: 'card_number-seat_num'
+		// ex: 1234-A1
+
+		String[] parts = message.split("-");
+		return parts[0];
 	}
 
 	public static void main(String[] argv) throws Exception {
 
 		config_connection();
 		GetResponse transaction;
+		Scanner scan = new Scanner(System.in);
+		String msg_count = new String();
 
 		for (;;) {
 
 			//channel_pen.basicConsume(PEN_QUEUE, true, consumer_pen);
-
-			Scanner scan = new Scanner(System.in);
-			String msg_count = new String();
-
+			
 			msg_count = scan.nextLine();
 
 			if (msg_count.equals("")) {
@@ -107,24 +116,30 @@ public class Transactions {
 				try {
 					transaction = channel_pen.basicGet(PEN_QUEUE, false);
 					String message = new String(transaction.getBody());
+					long tag = transaction.getEnvelope().getDeliveryTag();
 					
 					System.out.println("----------------------");
 					System.out.println("Recv: " +message);
 
-					String authentication = card_validate(message);
+					String authentication = card_validate(extract_card(message));
 					System.out.println("Bank: "+authentication);
 
 					if (authentication.equals("1")) {
 					
+						//publish on aproved transactions queue
 						System.out.println("Status: transacao aprovada!");
-						channel_fin.basicPublish("", FIN_QUEUE, null, transaction.getBody());
+						channel_apr.basicPublish("", APR_QUEUE, null, transaction.getBody());
 					}
 					else {
+
+						//publish on rejected transaction queue
 						System.out.println("Status: transacao rejeitada!");
+						channel_rej.basicPublish("", REJ_QUEUE, null, transaction.getBody());
 					}
 					System.out.println("----------------------\n");
 
-					channel_pen.basicConsume(PEN_QUEUE, true, consumer_pen);
+					//remove message from pending queue
+					channel_pen.basicReject(tag, false);
 
 				} catch (Exception e) {
 					

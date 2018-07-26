@@ -22,7 +22,8 @@ public class SaleServer {
 	private final Map<String, String> TupleSpace = new HashMap<> ();
 	
 	private final static String PEN_QUEUE = "pendentes";
-	private final static String FIN_QUEUE = "finalizados";
+	private final static String APR_QUEUE = "aprovados";
+	private final static String REJ_QUEUE = "rejeitados";
 	private final static String HOST_NAME = "localhost";
 
 	@WebMethod(operationName = "getTime")
@@ -84,7 +85,7 @@ public class SaleServer {
 	}
 	
 	@WebMethod(operationName = "reserva")
-	public String reserva(String tuple) throws Exception {
+	public String compra(String tuple, String card_number) throws Exception {
 	// IDEIA: take do espaco de tuplas, insere na fila de pendentes
 
 		if (TupleSpace.containsKey(tuple)) {
@@ -97,48 +98,16 @@ public class SaleServer {
 			
 			// remove a tupla do hashmap e publica mensagem de reserva na fila
 			TupleSpace.remove(tuple);
-			String message = "reserva assento " +tuple;
+			String message = card_number+"-"+tuple;
 			channel.basicPublish("", PEN_QUEUE, null, message.getBytes());
 			
 			channel.close();
 			connection.close();
 			
-			return (" [x] Sent '" + message + "'");
+			return (" [x] Sent message: '" + message + "'");
 		}
 		else {
 			return ("Assento indisponivel");
-		}
-	}
-	
-	@WebMethod(operationName = "compra")
-	public String compra(String num_cartao) throws Exception {
-	// IDEIA: se cartao validado, insere na fila de concluidos e retira de 
-	// pendentes, senao, retira de pendentes e re-insere nas tuplas
-		
-		String permission_status = validate(num_cartao);
-		if (permission_status.equals("Accepted card sir")) {
-			
-			//remove from pending queue
-			
-			ConnectionFactory factory = new ConnectionFactory();
-			factory.setHost(HOST_NAME);
-			Connection connection = factory.newConnection();
-			Channel channel = connection.createChannel();
-			channel.queueDeclare(FIN_QUEUE, false, false, false, null);
-
-			String message = "compra assento qualquer finalizada";
-			channel.basicPublish("", FIN_QUEUE, null, message.getBytes());
-
-			channel.close();
-			connection.close();
-
-			return "successfully bougth ticket";
-		}
-		else {
-			//re-insere nas tuplas o id de assento contido na mensagem
-			//retirada da queue
-			
-			return "failed";
 		}
 	}
 }
