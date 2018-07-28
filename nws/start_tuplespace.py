@@ -1,7 +1,13 @@
 from nws.client import NetWorkSpace
+import sys
 
-ts = NetWorkSpace("seats")
+port = 8765
 
-ts.store("answer", 42)
-count = ts.fetch("answer")
-print "The answer is", count
+try:
+    ts = NetWorkSpace(sys.argv[1], sys.argv[2], port, persistent=True)
+
+
+    print("Creation successful!")
+except:
+    print("Creation failed.")
+    print("start_tuplespace.py <tuplespace_name> <host>")
