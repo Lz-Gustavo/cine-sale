@@ -11,20 +11,28 @@ import com.rabbitmq.client.*;
 
 //import SaleServer.BankInterface;
 
-public class Transactions {
+public class Transactions3q {
 
 	private final static String PEN_QUEUE = "pendentes";
-	private final static String FIN_QUEUE = "finalizados";
-	private final static String HOST_NAME = "10.229.3.249";
+	private final static String APR_QUEUE = "aprovados";
+	private final static String REJ_QUEUE = "rejeitados";
+	private final static String HOST_NAME = "localhost";
 
 	private static ConnectionFactory factory_pen;
 	private static Connection connection_pen;
 	private static Channel channel_pen;
 	private static Consumer consumer_pen;
 
-	private static ConnectionFactory factory_fin;
-	private static Connection connection_fin;
-	private static Channel channel_fin;
+	private static ConnectionFactory factory_apr;
+	private static Connection connection_apr;
+	private static Channel channel_apr;
+	private static Consumer consumer_apr;
+
+	private static ConnectionFactory factory_rej;
+	private static Connection connection_rej;
+	private static Channel channel_rej;
+	private static Consumer consumer_rej;
+
 
 	private static String card_validate(String card_number) {
 		
@@ -67,11 +75,19 @@ public class Transactions {
 
 		//configuring connection to aproved orders queue
 
-		factory_fin = new ConnectionFactory();
-		factory_fin.setHost(HOST_NAME);
-		connection_fin = factory_fin.newConnection();
-		channel_fin = connection_fin.createChannel();
-		channel_fin.queueDeclare(FIN_QUEUE, false, false, false, null);
+		factory_apr = new ConnectionFactory();
+		factory_apr.setHost(HOST_NAME);
+		connection_apr = factory_apr.newConnection();
+		channel_apr = connection_apr.createChannel();
+		channel_apr.queueDeclare(APR_QUEUE, false, false, false, null);
+
+		//configuring connection to rejected orders queue
+
+		factory_rej = new ConnectionFactory();
+		factory_rej.setHost(HOST_NAME);
+		connection_rej = factory_rej.newConnection();
+		channel_rej = connection_rej.createChannel();
+		channel_rej.queueDeclare(REJ_QUEUE, false, false, false, null);
 	}
 
 	private static String extract_card(String message) {
@@ -112,17 +128,13 @@ public class Transactions {
 					
 						//publish on aproved transactions queue
 						System.out.println("Status: transacao aprovada!");
-						message += "-aprovado";
-						System.out.println("Send: "+message);
-						channel_fin.basicPublish("", FIN_QUEUE, null, message.getBytes());
+						channel_apr.basicPublish("", APR_QUEUE, null, transaction.getBody());
 					}
 					else {
 
 						//publish on rejected transaction queue
 						System.out.println("Status: transacao rejeitada!");
-						message += "-rejeitado";
-						System.out.println("Send: "+message);
-						channel_fin.basicPublish("", FIN_QUEUE, null, message.getBytes());
+						channel_rej.basicPublish("", REJ_QUEUE, null, transaction.getBody());
 					}
 					System.out.println("----------------------\n");
 
