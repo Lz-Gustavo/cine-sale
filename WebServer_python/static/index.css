@@ -36,3 +36,6 @@
   
   .seatsAmount {max-width: 2em;}
   
+button {
+    background-color: black !important;
+}

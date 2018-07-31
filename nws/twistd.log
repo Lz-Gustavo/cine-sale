@@ -600,3 +600,4 @@
 2018-07-28T17:37:24-0300 [twisted.python.log#info] 127.0.0.1 - - [28/Jul/2018:20:37:24 +0000] "GET /doit?op=listWss HTTP/1.1" 200 4228 "http://localhost:8766/doit?op=showServerInfo" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 2018-07-28T17:37:24-0300 [twisted.python.log#info] 127.0.0.1 - - [28/Jul/2018:20:37:24 +0000] "GET /favicon.ico HTTP/1.1" 200 4228 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 2018-07-28T17:38:24-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 34374)
+2018-07-28T17:41:36-0300 [-] Received SIGTERM, shutting down.

@@ -1,6 +1,8 @@
 from nws.client import NetWorkSpace
 import sys
 
+#twistd -y /etc/nws.tac
+
 port = 8765
 
 try:

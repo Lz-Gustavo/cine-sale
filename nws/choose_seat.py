@@ -4,7 +4,7 @@ import pika
 
 host = "localhost"
 port = 8765
-tsname = "rouge"
+tsname = "inimigos_hp"
 
 ts = NetWorkSpace(tsname, host, port)
 
@@ -22,7 +22,7 @@ try:
 
     channel.basic_publish(exchange='',
                         routing_key='pendentes',
-                        body='cliente 1-123123123020120-' + seat)
+                        body='12-' + seat)
     print(" [x] Mensagem recebida'")
 
     connection.close()

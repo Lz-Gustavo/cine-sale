@@ -19,8 +19,8 @@ alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', '
 try:
     for i in alpha[:int(sys.argv[3])]:
         for j in range(int(sys.argv[3])):
-            ts.declare("%s%d%s%d" % (i, j, i, j), 'fifo')
-            ts.store("%s%d%s%d" % (i, j, i, j), "%s%d%s%d" % (i, j, i, j))
+            ts.declare("%s%d" % (i, j), 'fifo')
+            ts.store("%s%d" % (i, j), "%s%d" % (i, j))
     print("Creation successful!")
 except:
     print ("Creation failed.")
