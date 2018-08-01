@@ -15,7 +15,8 @@ public class Transactions {
 
 	private final static String PEN_QUEUE = "pendentes";
 	private final static String FIN_QUEUE = "finalizados";
-	private final static String HOST_NAME = "10.229.3.249";
+	private final static String HOST_NAME = "127.0.0.1";
+	private final static String RMI_HOST = "10.230.220.0";
 
 	private static ConnectionFactory factory_pen;
 	private static Connection connection_pen;
@@ -29,7 +30,7 @@ public class Transactions {
 	private static String card_validate(String card_number) {
 		
 		BankInterface bank;
-		String name = "rmi://localhost/BankServer";
+		String name = "rmi://"+RMI_HOST+"/BankServer";
 		int permission;
 		
 		try {
