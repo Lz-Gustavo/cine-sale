@@ -15,8 +15,8 @@ public class Transactions {
 
 	private final static String PEN_QUEUE = "pendentes";
 	private final static String FIN_QUEUE = "finalizados";
-	private final static String HOST_NAME = "127.0.0.1";
-	private final static String RMI_HOST = "10.230.220.0";
+	private final static String HOST_NAME = "localhost";
+	private final static String RMI_HOST = "localhost";
 
 	private static ConnectionFactory factory_pen;
 	private static Connection connection_pen;
