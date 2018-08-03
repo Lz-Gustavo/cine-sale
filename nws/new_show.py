@@ -12,6 +12,10 @@ port = 8765
 tsname = sys.argv[1]
 host = sys.argv[2]
 
+data = NetWorkSpace("database", host, port, persistent=True)
+data.declare(tsname, 'fifo')
+data.store(tsname, tsname)
+
 ts = NetWorkSpace(tsname, host, port, persistent=True)
 
 alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
