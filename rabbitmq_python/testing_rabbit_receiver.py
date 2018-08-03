@@ -8,7 +8,7 @@ channel.queue_declare(queue='finalizados')
 
 
 def callback(ch, method, properties, body):
-    assento1 = "A2"
+    assento1 = "D4"
     assento2 = "A3"
     corpo = body.split('-')[1]
 
@@ -20,7 +20,7 @@ def callback(ch, method, properties, body):
         else:
             print(" [x] Fez nada! %r" % body)
     exit(0)
-    
+
 channel.basic_consume(callback, queue='finalizados', no_ack=True)    
 
 print(' [*] Waiting for messages. To exit press CTRL+C')

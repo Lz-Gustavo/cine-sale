@@ -16,7 +16,7 @@ else:
 if sys.argv[2:]:
 	PORT=sys.argv[2]
 else:
-	PORT=8080
+	PORT=8080	
 
 @app.route("/")
 def main():
@@ -41,8 +41,6 @@ def consulta(espetaculo):
 	ts = NetWorkSpace(tsname, host, port)
 
 	seats = ""
-	seats = '<link rel="stylesheet" type="text/css" media="screen" href="../static/index.css" />'
-	seats += '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>'
 
 	try:
 		for i in ts.listVars(wsName=tsname, format='dict'):
@@ -78,7 +76,7 @@ def compra(assento, espetaculo):
 		if (seat == None):
 			exit(0)
 
-		connection = pika.BlockingConnection(pika.ConnectionParameters(host))
+		connection = pika.BlockingConnection(pika.ConnectionParameters(host='10.229.6.90'))
 		channel = connection.channel()
 
 		channel.queue_declare(queue='pendentes')
@@ -93,7 +91,7 @@ def compra(assento, espetaculo):
 		ts.deleteVar(seat)
 
 		#Fila finalizados
-		connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+		connection = pika.BlockingConnection(pika.ConnectionParameters(host='10.229.6.90'))
 		channel = connection.channel()
 
 		channel.queue_declare(queue='finalizados')
@@ -109,25 +107,19 @@ def compra(assento, espetaculo):
 					aprovado = 0
 					print(" [x] Reprovado! %r" % body)
 			print aprovado
-			channel.stop_consuming()
 
 		channel.basic_consume(callback, queue='finalizados', no_ack=True)    
 
 		print(' [*] Waiting for messages. To exit press CTRL+C')
 		channel.start_consuming()
 
-		print aprovado
-		if aprovado == 1:
-			return "Compra aprovada"
-		elif aprovado == 0:
-			return "Compra reprovada, tente com outra forma de pagamento."
-		return "Falha na compra."
-
 		channel.close()
 		connection.close()
 
+		return "Sucesso"
+	
 	except:
-		print aprovado
+		raise
 		if aprovado == 1:
 			return "Compra aprovada"
 		elif aprovado == 0:
@@ -135,4 +127,4 @@ def compra(assento, espetaculo):
 		return "Falha na compra."
 
 if __name__ == "__main__":
-	app.run(debug=True, host=HOST, port=PORT)
+	app.run(debug=True, host='0.0.0.0', port=PORT)

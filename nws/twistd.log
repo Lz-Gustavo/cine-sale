@@ -601,3 +601,91 @@
 2018-07-28T17:37:24-0300 [twisted.python.log#info] 127.0.0.1 - - [28/Jul/2018:20:37:24 +0000] "GET /favicon.ico HTTP/1.1" 200 4228 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 2018-07-28T17:38:24-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 34374)
 2018-07-28T17:41:36-0300 [-] Received SIGTERM, shutting down.
+2018-08-01T17:43:19-0300 [-] Removing stale pidfile /home/gabriel/Documents/CineSale/cine-sale/nws/twistd.pid
+2018-08-01T17:43:19-0300 [-] Loading /etc/nws.tac...
+2018-08-01T17:43:19-0300 [-] clientCode served from directory clientCode
+2018-08-01T17:43:19-0300 [-] clientCode directory doesn't exist
+2018-08-01T17:43:19-0300 [-] Loaded.
+2018-08-01T17:43:20-0300 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 17.9.0 (/usr/bin/python2 2.7.15) starting up.
+2018-08-01T17:43:20-0300 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+2018-08-01T17:43:20-0300 [-] NwsService starting on 8765
+2018-08-01T17:43:20-0300 [nwss.server.NwsService#info] Starting factory <nwss.server.NwsService instance at 0x7fe80aaaa3b0>
+2018-08-01T17:43:20-0300 [-] NetWorkSpaces Server version 2.0.0
+2018-08-01T17:43:20-0300 [-] using temp directory /tmp
+2018-08-01T17:43:20-0300 [-] Site starting on 8766
+2018-08-01T17:43:20-0300 [twisted.web.server.Site#info] Starting factory <twisted.web.server.Site instance at 0x7fe80aaaa7a0>
+2018-08-01T17:43:22-0300 [NwsProtocol,0,127.0.0.1] Creating standard workspace (name "teste")
+2018-08-01T17:43:35-0300 [twisted.python.log#info] 127.0.0.1 - - [01/Aug/2018:20:43:35 +0000] "GET / HTTP/1.1" 200 2607 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-01T17:43:36-0300 [twisted.python.log#info] 10.230.218.138 - - [01/Aug/2018:20:43:36 +0000] "GET / HTTP/1.1" 200 2607 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
+2018-08-01T17:43:36-0300 [twisted.python.log#info] 10.230.218.138 - - [01/Aug/2018:20:43:36 +0000] "GET /favicon.ico HTTP/1.1" 200 2607 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
+2018-08-01T17:43:36-0300 [twisted.python.log#info] 127.0.0.1 - - [01/Aug/2018:20:43:36 +0000] "GET /favicon.ico HTTP/1.1" 200 2607 "http://localhost:8766/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-01T17:44:35-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 48652)
+2018-08-01T17:44:36-0300 [-] Timing out client: IPv4Address(TCP, '10.230.218.138', 51960)
+2018-08-01T17:44:36-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 48648)
+2018-08-01T18:18:49-0300 [NwsProtocol,10,127.0.0.1] Creating standard workspace (name "paralamas")
+2018-08-03T11:54:03-0300 [-] Removing stale pidfile /home/gabriel/Documents/CineSale/cine-sale/nws/twistd.pid
+2018-08-03T11:54:03-0300 [-] Loading /etc/nws.tac...
+2018-08-03T11:54:03-0300 [-] clientCode served from directory clientCode
+2018-08-03T11:54:03-0300 [-] clientCode directory doesn't exist
+2018-08-03T11:54:03-0300 [-] Loaded.
+2018-08-03T11:54:03-0300 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 17.9.0 (/usr/bin/python2 2.7.15) starting up.
+2018-08-03T11:54:03-0300 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+2018-08-03T11:54:03-0300 [-] NwsService starting on 8765
+2018-08-03T11:54:03-0300 [nwss.server.NwsService#info] Starting factory <nwss.server.NwsService instance at 0x7ff482d4a3f8>
+2018-08-03T11:54:03-0300 [-] NetWorkSpaces Server version 2.0.0
+2018-08-03T11:54:03-0300 [-] using temp directory /tmp
+2018-08-03T11:54:03-0300 [-] Site starting on 8766
+2018-08-03T11:54:03-0300 [twisted.web.server.Site#info] Starting factory <twisted.web.server.Site instance at 0x7ff482d4a7e8>
+2018-08-03T11:54:05-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:54:04 +0000] "GET / HTTP/1.1" 200 2205 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:54:05-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:54:05 +0000] "GET /favicon.ico HTTP/1.1" 200 2205 "http://localhost:8766/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:54:57-0300 [NwsProtocol,0,127.0.0.1] Creating standard workspace (name "database")
+2018-08-03T11:55:05-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 47346)
+2018-08-03T11:55:05-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 47342)
+2018-08-03T11:56:49-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:56:48 +0000] "GET / HTTP/1.1" 200 2616 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:56:49-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:56:48 +0000] "GET /favicon.ico HTTP/1.1" 200 2616 "http://localhost:8766/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:56:52-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:56:51 +0000] "POST /doit HTTP/1.1" 200 2203 "http://localhost:8766/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:56:52-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:56:51 +0000] "GET /favicon.ico HTTP/1.1" 200 2616 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:56:54-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:56:53 +0000] "POST /doit HTTP/1.1" 200 1754 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:56:54-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:56:53 +0000] "GET /favicon.ico HTTP/1.1" 200 2205 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:56:57-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:56:56 +0000] "GET /doit?op=listWss HTTP/1.1" 200 2205 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:56:57-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:56:56 +0000] "GET /favicon.ico HTTP/1.1" 200 2205 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:57:04-0300 [NwsProtocol,1,127.0.0.1] Creating standard workspace (name "database")
+2018-08-03T11:57:04-0300 [NwsProtocol,2,127.0.0.1] Creating standard workspace (name "paralamas")
+2018-08-03T11:57:24-0300 [NwsProtocol,4,127.0.0.1] Creating standard workspace (name "ivete")
+2018-08-03T11:57:25-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:57:25 +0000] "GET /doit?op=listWss HTTP/1.1" 200 3435 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:57:26-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:57:26 +0000] "GET /favicon.ico HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:57:29-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:57:29 +0000] "GET /doit?op=listVars&wsName=database HTTP/1.1" 200 2868 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:57:29-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:57:29 +0000] "GET /favicon.ico HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=listVars&wsName=database" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:57:44-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:57:44 +0000] "GET /doit?op=listWss HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=listVars&wsName=database" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:57:44-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:57:44 +0000] "GET /favicon.ico HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:18-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:18 +0000] "POST /doit HTTP/1.1" 200 2203 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:18-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:18 +0000] "GET /favicon.ico HTTP/1.1" 200 3435 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:19-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:19 +0000] "POST /doit HTTP/1.1" 200 1754 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:19-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:19 +0000] "GET /favicon.ico HTTP/1.1" 200 3024 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:21-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:21 +0000] "GET /doit?op=listWss HTTP/1.1" 200 3024 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:21-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:21 +0000] "GET /favicon.ico HTTP/1.1" 200 3024 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:23-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:23 +0000] "POST /doit HTTP/1.1" 200 2197 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:23-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:23 +0000] "GET /favicon.ico HTTP/1.1" 200 3024 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:24-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:24 +0000] "POST /doit HTTP/1.1" 200 1751 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:24-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:24 +0000] "GET /favicon.ico HTTP/1.1" 200 2620 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:25-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:25 +0000] "GET /doit?op=listWss HTTP/1.1" 200 2620 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:25-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:25 +0000] "GET /favicon.ico HTTP/1.1" 200 2620 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:27-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:27 +0000] "POST /doit HTTP/1.1" 200 2205 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:27-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:27 +0000] "GET /favicon.ico HTTP/1.1" 200 2620 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:28-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:28 +0000] "POST /doit HTTP/1.1" 200 1755 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:28-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:28 +0000] "GET /favicon.ico HTTP/1.1" 200 2205 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:29-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:29 +0000] "GET /doit?op=listWss HTTP/1.1" 200 2205 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:30-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:30 +0000] "GET /favicon.ico HTTP/1.1" 200 2205 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:36-0300 [NwsProtocol,5,127.0.0.1] Creating standard workspace (name "database")
+2018-08-03T11:58:36-0300 [NwsProtocol,6,127.0.0.1] Creating standard workspace (name "paralamas")
+2018-08-03T11:58:38-0300 [NwsProtocol,8,127.0.0.1] Creating standard workspace (name "ivete")
+2018-08-03T11:58:43-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:43 +0000] "GET /doit?op=listWss HTTP/1.1" 200 3435 "http://localhost:8766/doit" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:43-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:43 +0000] "GET /favicon.ico HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:46-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:46 +0000] "GET /doit?op=listVars&wsName=database HTTP/1.1" 200 2868 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:46-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:46 +0000] "GET /favicon.ico HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=listVars&wsName=database" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:48-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:48 +0000] "GET /doit?op=showVar&wsName=database&varName=ivete HTTP/1.1" 200 1890 "http://localhost:8766/doit?op=listVars&wsName=database" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:48-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:48 +0000] "GET /favicon.ico HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=showVar&wsName=database&varName=ivete" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:50-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:50 +0000] "GET /doit?op=listWss HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=showVar&wsName=database&varName=ivete" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:58:50-0300 [twisted.python.log#info] 127.0.0.1 - - [03/Aug/2018:14:58:50 +0000] "GET /favicon.ico HTTP/1.1" 200 3435 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36"
+2018-08-03T11:59:43-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 47434)
+2018-08-03T11:59:50-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 47382)

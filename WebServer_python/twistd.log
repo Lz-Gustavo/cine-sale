@@ -107,3 +107,16 @@
 2018-07-31T19:21:44-0300 [twisted.python.log#info] 127.0.0.1 - - [31/Jul/2018:22:21:43 +0000] "GET /doit?op=listWss HTTP/1.1" 200 3857 "http://localhost:8766/doit?op=listVars&wsName=galinha" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 2018-07-31T19:21:44-0300 [twisted.python.log#info] 127.0.0.1 - - [31/Jul/2018:22:21:43 +0000] "GET /favicon.ico HTTP/1.1" 200 3857 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 2018-07-31T19:22:44-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 33280)
+2018-07-31T19:36:25-0300 [twisted.python.log#info] 127.0.0.1 - - [31/Jul/2018:22:36:25 +0000] "GET /doit?op=listVars&wsName=galo HTTP/1.1" 200 11015 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+2018-07-31T19:36:25-0300 [twisted.python.log#info] 127.0.0.1 - - [31/Jul/2018:22:36:25 +0000] "GET /favicon.ico HTTP/1.1" 200 3857 "http://localhost:8766/doit?op=listVars&wsName=galo" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+2018-07-31T19:36:26-0300 [twisted.python.log#info] 127.0.0.1 - - [31/Jul/2018:22:36:26 +0000] "GET /doit?op=listVars&wsName=galo HTTP/1.1" 200 11015 "http://localhost:8766/doit?op=listWss" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+2018-07-31T19:36:26-0300 [twisted.python.log#info] 127.0.0.1 - - [31/Jul/2018:22:36:26 +0000] "GET /favicon.ico HTTP/1.1" 200 3857 "http://localhost:8766/doit?op=listVars&wsName=galo" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+2018-07-31T19:37:26-0300 [-] Timing out client: IPv4Address(TCP, '127.0.0.1', 34408)
+2018-07-31T19:40:04-0300 [-] Received SIGTERM, shutting down.
+2018-07-31T19:40:04-0300 [-] (TCP Port 8766 Closed)
+2018-07-31T19:40:04-0300 [twisted.web.server.Site#info] Stopping factory <twisted.web.server.Site instance at 0x7f1e7ba63830>
+2018-07-31T19:40:04-0300 [-] (TCP Port 8765 Closed)
+2018-07-31T19:40:04-0300 [nwss.server.NwsService#info] Stopping factory <nwss.server.NwsService instance at 0x7f1e7ba63440>
+2018-07-31T19:40:04-0300 [-] stopping NwsService
+2018-07-31T19:40:04-0300 [-] stopping complete
+2018-07-31T19:40:04-0300 [-] Main loop terminated.

@@ -1,0 +1,64 @@
+2018-08-01T00:54:11-0300 [-] Loading /etc/nws.tac...
+2018-08-01T00:54:12-0300 [-] clientCode served from directory clientCode
+2018-08-01T00:54:12-0300 [-] clientCode directory doesn't exist
+2018-08-01T00:54:12-0300 [-] Loaded.
+2018-08-01T00:54:12-0300 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 17.9.0 (/usr/bin/python2 2.7.15) starting up.
+2018-08-01T00:54:12-0300 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+2018-08-01T00:54:12-0300 [stderr#error] Traceback (most recent call last):
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/bin/twistd", line 11, in <module>
+2018-08-01T00:54:12-0300 [stderr#error]     load_entry_point('Twisted==17.9.0', 'console_scripts', 'twistd')()
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/scripts/twistd.py", line 29, in run
+2018-08-01T00:54:12-0300 [stderr#error]     app.run(runApp, ServerOptions)
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/app.py", line 662, in run
+2018-08-01T00:54:12-0300 [stderr#error]     runApp(config)
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/scripts/twistd.py", line 25, in runApp
+2018-08-01T00:54:12-0300 [stderr#error]     _SomeApplicationRunner(config).run()
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/app.py", line 384, in run
+2018-08-01T00:54:12-0300 [stderr#error]     self.postApplication()
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/scripts/_twistd_unix.py", line 248, in postApplication
+2018-08-01T00:54:12-0300 [stderr#error]     self.startApplication(self.application)
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/scripts/_twistd_unix.py", line 435, in startApplication
+2018-08-01T00:54:12-0300 [stderr#error]     service.IService(application).privilegedStartService()
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/service.py", line 279, in privilegedStartService
+2018-08-01T00:54:12-0300 [stderr#error]     service.privilegedStartService()
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/internet.py", line 114, in privilegedStartService
+2018-08-01T00:54:12-0300 [stderr#error]     self._port = self._getPort()
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/internet.py", line 142, in _getPort
+2018-08-01T00:54:12-0300 [stderr#error]     'listen%s' % (self.method,))(*self.args, **self.kwargs)
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/internet/posixbase.py", line 495, in listenTCP
+2018-08-01T00:54:12-0300 [stderr#error]     p.startListening()
+2018-08-01T00:54:12-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/internet/tcp.py", line 980, in startListening
+2018-08-01T00:54:12-0300 [stderr#error]     raise CannotListenError(self.interface, self.port, le)
+2018-08-01T00:54:12-0300 [stderr#error] twisted.internet.error.CannotListenError: Couldn't listen on any:8765: [Errno 98] Address already in use.
+2018-08-01T00:54:31-0300 [-] Loading /etc/nws.tac...
+2018-08-01T00:54:31-0300 [-] clientCode served from directory clientCode
+2018-08-01T00:54:31-0300 [-] clientCode directory doesn't exist
+2018-08-01T00:54:31-0300 [-] Loaded.
+2018-08-01T00:54:31-0300 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 17.9.0 (/usr/bin/python2 2.7.15) starting up.
+2018-08-01T00:54:31-0300 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+2018-08-01T00:54:31-0300 [stderr#error] Traceback (most recent call last):
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/bin/twistd", line 11, in <module>
+2018-08-01T00:54:31-0300 [stderr#error]     load_entry_point('Twisted==17.9.0', 'console_scripts', 'twistd')()
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/scripts/twistd.py", line 29, in run
+2018-08-01T00:54:31-0300 [stderr#error]     app.run(runApp, ServerOptions)
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/app.py", line 662, in run
+2018-08-01T00:54:31-0300 [stderr#error]     runApp(config)
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/scripts/twistd.py", line 25, in runApp
+2018-08-01T00:54:31-0300 [stderr#error]     _SomeApplicationRunner(config).run()
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/app.py", line 384, in run
+2018-08-01T00:54:31-0300 [stderr#error]     self.postApplication()
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/scripts/_twistd_unix.py", line 248, in postApplication
+2018-08-01T00:54:31-0300 [stderr#error]     self.startApplication(self.application)
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/scripts/_twistd_unix.py", line 435, in startApplication
+2018-08-01T00:54:31-0300 [stderr#error]     service.IService(application).privilegedStartService()
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/service.py", line 279, in privilegedStartService
+2018-08-01T00:54:31-0300 [stderr#error]     service.privilegedStartService()
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/internet.py", line 114, in privilegedStartService
+2018-08-01T00:54:31-0300 [stderr#error]     self._port = self._getPort()
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/application/internet.py", line 142, in _getPort
+2018-08-01T00:54:31-0300 [stderr#error]     'listen%s' % (self.method,))(*self.args, **self.kwargs)
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/internet/posixbase.py", line 495, in listenTCP
+2018-08-01T00:54:31-0300 [stderr#error]     p.startListening()
+2018-08-01T00:54:31-0300 [stderr#error]   File "/usr/lib/python2.7/dist-packages/twisted/internet/tcp.py", line 980, in startListening
+2018-08-01T00:54:31-0300 [stderr#error]     raise CannotListenError(self.interface, self.port, le)
+2018-08-01T00:54:31-0300 [stderr#error] twisted.internet.error.CannotListenError: Couldn't listen on any:8765: [Errno 98] Address already in use.
