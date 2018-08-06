@@ -3,13 +3,7 @@ package SaleServer;
 import java.rmi.*;
 import java.util.Scanner;
 import java.io.IOException;
-
-//import com.rabbitmq.client.Channel;
-//import com.rabbitmq.client.Connection;
-//import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.*;
-
-//import SaleServer.BankInterface;
 
 public class Transactions {
 
@@ -46,28 +40,13 @@ public class Transactions {
 	private static void config_connection() throws Exception {
 
 		//configuring connection to pending orders queue
-
 		factory_pen = new ConnectionFactory();
 		factory_pen.setHost(HOST_NAME);
 		connection_pen = factory_pen.newConnection();
 		channel_pen = connection_pen.createChannel();
 		channel_pen.queueDeclare(PEN_QUEUE, false, false, false, null);
-		//System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
-
-		// consumer_pen = new DefaultConsumer(channel_pen) {
-		// 	@Override
-		// 	public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
-		// 	throws IOException {
-				
-		// 		String message = new String(body, "UTF-8");
-		// 		System.out.println(" [x] Received '" + message + "'");
-		// 		//return message;
-		// 	}
-		// };
-
 
 		//configuring connection to aproved orders queue
-
 		factory_fin = new ConnectionFactory();
 		factory_fin.setHost(HOST_NAME);
 		connection_fin = factory_fin.newConnection();
@@ -76,8 +55,8 @@ public class Transactions {
 	}
 
 	private static String extract_card(String message) {
-		// message format: 'card_number-seat_num'
-		// ex: 1234-A1
+		// message format: 'card_number-seat_num-status'
+		// ex: 1234-A1-aprovada
 
 		String[] parts = message.split("-");
 		return parts[0];
@@ -91,12 +70,13 @@ public class Transactions {
 		String msg_count = new String();
 
 		for (;;) {
-
-			//channel_pen.basicConsume(PEN_QUEUE, true, consumer_pen);
 			
-			msg_count = scan.nextLine();
+			//wait for 5s
+			Thread.sleep(5000);
 
-			if (msg_count.equals("")) {
+			//msg_count = scan.nextLine();
+
+			//if (msg_count.equals("")) {
 
 				try {
 					transaction = channel_pen.basicGet(PEN_QUEUE, false);
@@ -132,9 +112,9 @@ public class Transactions {
 
 				} catch (Exception e) {
 					
-					System.out.println("Exception: " +e);
+					System.out.println("Order not found: " +e);
 				}
-			}
+			//}
 		}
 	}
 }
